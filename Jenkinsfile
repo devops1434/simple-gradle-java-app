@@ -5,9 +5,10 @@ pipeline {
     }
     stages {
         stage('code checkout') {
-            git 'https://github.com/devops1434/simple-gradle-java-app.git'
+            steps {
+              git 'https://github.com/devops1434/simple-gradle-java-app.git'
+            }
         }
-    }
     stage ('gradle build') {
         steps {
             sh 'gradle clean build'
@@ -17,5 +18,6 @@ pipeline {
         steps {
             sh 'gradle test'
         }
+    }
     }
 }
